@@ -22,8 +22,8 @@ const faqs = [
     answer: 'Absolutely! You can adjust the scale, position (X and Y), background color, and border roundness. All changes are previewed in real-time across all device types.'
   },
   {
-    question: 'Is this website free to use?',
-    answer: 'This website and API are proprietary to Roboticela. Use is subject to our terms. The Iconify desktop app may have its own license—check the app or Roboticela for details.'
+    question: 'Is Iconify free to use?',
+    answer: 'Yes, Iconify is completely free and open source under the AGPL-3.0 license. You can use it for personal and commercial projects without any restrictions.'
   },
   {
     question: 'Do I need to install anything?',

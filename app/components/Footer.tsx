@@ -139,7 +139,7 @@ export default function Footer() {
             ©{new Date().getFullYear()} Roboticela. All rights reserved.
           </p>
           <p className="text-sm text-foreground/60 text-center md:text-right">
-            Proprietary • © Roboticela • Made with ❤️ for developers
+            Licensed under AGPL-3.0 • Made with ❤️ for developers
           </p>
         </div>
       </div>

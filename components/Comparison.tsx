@@ -35,10 +35,10 @@ const comparisons = [
     iconifyBetter: true
   },
   {
-    feature: 'License',
-    iconify: 'Proprietary (Roboticela)',
-    others: 'Varies',
-    iconifyBetter: false
+    feature: 'Open Source',
+    iconify: 'Yes (AGPL-3.0)',
+    others: 'Closed source',
+    iconifyBetter: true
   }
 ];
 

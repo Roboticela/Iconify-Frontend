@@ -6,7 +6,7 @@ const stats = [
   { value: '25+', label: 'Platforms Supported' },
   { value: '100+', label: 'Icon Sizes Generated' },
   { value: '8', label: 'Beautiful Themes' },
-  { value: '100%', label: 'Proprietary' }
+  { value: '100%', label: 'Free & Open Source' }
 ];
 
 export default function Stats() {
