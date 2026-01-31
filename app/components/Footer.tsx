@@ -73,6 +73,11 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Resources</h3>
             <ul className="space-y-2">
               <li>
+                <Link href="/support" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                  Support
+                </Link>
+              </li>
+              <li>
                 <a href="#platforms" className="text-sm text-foreground/70 hover:text-primary transition-colors">
                   Platforms
                 </a>
@@ -134,7 +139,7 @@ export default function Footer() {
             ©{new Date().getFullYear()} Roboticela. All rights reserved.
           </p>
           <p className="text-sm text-foreground/60 text-center md:text-right">
-            Licensed under AGPL-3.0 • Made with ❤️ for developers
+            Proprietary • © Roboticela • Made with ❤️ for developers
           </p>
         </div>
       </div>

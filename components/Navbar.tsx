@@ -25,6 +25,7 @@ export default function Navbar() {
     { href: '#platforms', label: 'Platforms' },
     { href: '#faq', label: 'FAQ' },
     { href: '#about', label: 'About' },
+    { href: '/support', label: 'Support' },
   ];
 
   return (
@@ -39,15 +40,25 @@ export default function Navbar() {
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-4 md:gap-6 shrink-0">
-          {navLinks.map((link) => (
-            <a 
-              key={link.href}
-              href={link.href} 
-              className="text-foreground/80 hover:text-primary transition-all duration-200 cursor-pointer text-sm md:text-base"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) =>
+            link.href.startsWith('/') && link.href !== '/' ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-foreground/80 hover:text-primary transition-all duration-200 cursor-pointer text-sm md:text-base"
+              >
+                {link.label}
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-foreground/80 hover:text-primary transition-all duration-200 cursor-pointer text-sm md:text-base"
+              >
+                {link.label}
+              </a>
+            )
+          )}
           <a 
             href="https://github.com/Roboticela/Iconify" 
             target="_blank" 
@@ -107,16 +118,27 @@ export default function Navbar() {
               className="lg:hidden fixed top-[73px] left-0 right-0 bg-card/95 backdrop-blur-md border-b border-border/40 z-30 max-h-[calc(100vh-73px)] overflow-y-auto"
             >
               <div className="max-w-7xl mx-auto px-4 py-4 space-y-3">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeMenu}
-                    className="block px-4 py-3 text-foreground/80 hover:text-primary hover:bg-accent rounded-xl transition-all duration-200 cursor-pointer text-base"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {navLinks.map((link) =>
+                  link.href.startsWith('/') && link.href !== '/' ? (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={closeMenu}
+                      className="block px-4 py-3 text-foreground/80 hover:text-primary hover:bg-accent rounded-xl transition-all duration-200 cursor-pointer text-base"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={closeMenu}
+                      className="block px-4 py-3 text-foreground/80 hover:text-primary hover:bg-accent rounded-xl transition-all duration-200 cursor-pointer text-base"
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
                 <a
                   href="https://github.com/Roboticela/Iconify"
                   target="_blank"

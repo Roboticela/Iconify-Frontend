@@ -10,7 +10,7 @@ const benefits = [
   { icon: Lock, text: 'Privacy First' },
   { icon: Grid3x3, text: '25+ Platforms' },
   { icon: Monitor, text: 'Desktop & Web' },
-  { icon: Globe, text: 'Open Source' }
+  { icon: Globe, text: 'Proprietary' }
 ];
 
 const containerAnimation = {

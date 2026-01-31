@@ -6,8 +6,8 @@ import { Heart, Users, Target, Sparkles } from 'lucide-react';
 const values = [
   {
     icon: Heart,
-    title: 'Open Source',
-    description: 'Built with love for the developer community. Free forever and open to contributions.'
+    title: 'Proprietary',
+    description: 'Built with care for the developer community. Professional software by Roboticela.'
   },
   {
     icon: Users,
@@ -88,7 +88,7 @@ export default function About() {
             </a>
           </p>
           <p className="text-foreground/50 text-sm">
-            Licensed under AGPL-3.0 • Open Source Forever
+            Proprietary • © Roboticela. All rights reserved.
           </p>
         </motion.div>
       </div>

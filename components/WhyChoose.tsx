@@ -20,8 +20,8 @@ const benefits = [
     delay: 0.1
   },
   {
-    title: 'Free Forever',
-    description: 'Completely free and open source under AGPL-3.0. No subscriptions, no hidden costs, no feature limitations.',
+    title: 'Professional',
+    description: 'Proprietary software by Roboticela. Professional support, updates, and a reliable icon generation platform.',
     delay: 0.1
   }
 ];

@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Send, User, Mail, FileText, CheckCircle, AlertCircle } from 'lucide-react';
 import Link from 'next/link';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 type SubmitStatus = 'idle' | 'sending' | 'success' | 'error';
 
