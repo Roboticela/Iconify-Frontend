@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X, Github } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
@@ -8,6 +9,12 @@ import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMenu();
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,29 +26,61 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '#features', label: 'Features' },
-    { href: '#demo', label: 'Demo' },
-    { href: '#downloads', label: 'Download' },
-    { href: '#platforms', label: 'Platforms' },
-    { href: '#faq', label: 'FAQ' },
-    { href: '#about', label: 'About' },
+    { href: '/#features', label: 'Features' },
+    { href: '/#demo', label: 'Demo' },
+    { href: '/#downloads', label: 'Download' },
+    { href: '/#platforms', label: 'Platforms' },
+    { href: '/#faq', label: 'FAQ' },
+    { href: '/#about', label: 'About' },
     { href: '/support', label: 'Support' },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/70 backdrop-blur-md border-b border-border/40">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 flex items-center justify-between gap-2 overflow-x-hidden relative z-50">
-        <Link href="/" className="flex items-center gap-1.5 sm:gap-2 md:gap-3 min-w-0 flex-1">
-          <img src="/Favicon.svg" alt="Iconify" className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 shrink-0" />
-          <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-foreground truncate">
-            Iconify
-          </span>
-        </Link>
+        {pathname === '/' ? (
+          <button
+            type="button"
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 sm:gap-2 md:gap-3 min-w-0 flex-1 text-left"
+          >
+            <img src="/Favicon.svg" alt="Iconify" className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 shrink-0" />
+            <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-foreground truncate">
+              Iconify
+            </span>
+          </button>
+        ) : (
+          <Link href="/" className="flex items-center gap-1.5 sm:gap-2 md:gap-3 min-w-0 flex-1">
+            <img src="/Favicon.svg" alt="Iconify" className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 shrink-0" />
+            <span className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold text-foreground truncate">
+              Iconify
+            </span>
+          </Link>
+        )}
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-4 md:gap-6 shrink-0">
           {navLinks.map((link) =>
-            link.href.startsWith('/') && link.href !== '/' ? (
+            link.href === '/' ? (
+              pathname === '/' ? (
+                <button
+                  key={link.href}
+                  type="button"
+                  onClick={scrollToTop}
+                  className="text-foreground/80 hover:text-primary transition-all duration-200 cursor-pointer text-sm md:text-base"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-foreground/80 hover:text-primary transition-all duration-200 cursor-pointer text-sm md:text-base"
+                >
+                  {link.label}
+                </Link>
+              )
+            ) : link.href.startsWith('/') ? (
               <Link
                 key={link.href}
                 href={link.href}
@@ -119,7 +158,27 @@ export default function Navbar() {
             >
               <div className="max-w-7xl mx-auto px-4 py-4 space-y-3">
                 {navLinks.map((link) =>
-                  link.href.startsWith('/') && link.href !== '/' ? (
+                  link.href === '/' ? (
+                    pathname === '/' ? (
+                      <button
+                        key={link.href}
+                        type="button"
+                        onClick={scrollToTop}
+                        className="block w-full text-left px-4 py-3 text-foreground/80 hover:text-primary hover:bg-accent rounded-xl transition-all duration-200 cursor-pointer text-base"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={closeMenu}
+                        className="block px-4 py-3 text-foreground/80 hover:text-primary hover:bg-accent rounded-xl transition-all duration-200 cursor-pointer text-base"
+                      >
+                        {link.label}
+                      </Link>
+                    )
+                  ) : link.href.startsWith('/') ? (
                     <Link
                       key={link.href}
                       href={link.href}

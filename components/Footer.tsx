@@ -1,9 +1,13 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { Github, Mail } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer() {
+  const pathname = usePathname();
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
   return (
     <footer className="py-12 px-4 bg-card/30 border-t border-border/40 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
@@ -11,12 +15,21 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Description */}
           <div className="col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            {pathname === '/' ? (
+              <button type="button" onClick={scrollToTop} className="flex items-center gap-2 mb-4 text-left">
+                <img src="/Favicon.svg" alt="Iconify" className="w-6 h-6 shrink-0" />
+                <span className="text-lg font-semibold text-foreground">
+                  Iconify
+                </span>
+              </button>
+            ) : (
+              <Link href="/" className="flex items-center gap-2 mb-4">
               <img src="/Favicon.svg" alt="Iconify" className="w-6 h-6 shrink-0" />
-              <span className="text-lg font-semibold text-foreground">
-                Iconify
-              </span>
-            </Link>
+                <span className="text-lg font-semibold text-foreground">
+                  Iconify
+                </span>
+              </Link>
+            )}
             <p className="text-sm text-foreground/60 mb-4">
               Generate perfect app icons for 25+ platforms. Privacy-focused, free, and open source.
             </p>
@@ -46,22 +59,32 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider">Product</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-sm text-foreground/70 hover:text-primary transition-colors">
-                  Home
-                </Link>
+                {pathname === '/' ? (
+                  <button
+                    type="button"
+                    onClick={scrollToTop}
+                    className="text-sm text-foreground/70 hover:text-primary transition-colors"
+                  >
+                    Home
+                  </button>
+                ) : (
+                  <Link href="/" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                    Home
+                  </Link>
+                )}
               </li>
               <li>
-                <a href="#features" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                <a href="/#features" className="text-sm text-foreground/70 hover:text-primary transition-colors">
                   Features
                 </a>
               </li>
               <li>
-                <a href="#demo" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                <a href="/#demo" className="text-sm text-foreground/70 hover:text-primary transition-colors">
                   Demo
                 </a>
               </li>
               <li>
-                <a href="#downloads" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                <a href="/#downloads" className="text-sm text-foreground/70 hover:text-primary transition-colors">
                   Download
                 </a>
               </li>
@@ -78,17 +101,17 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#platforms" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                <a href="/#platforms" className="text-sm text-foreground/70 hover:text-primary transition-colors">
                   Platforms
                 </a>
               </li>
               <li>
-                <a href="#faq" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                <a href="/#faq" className="text-sm text-foreground/70 hover:text-primary transition-colors">
                   FAQ
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-sm text-foreground/70 hover:text-primary transition-colors">
+                <a href="/#about" className="text-sm text-foreground/70 hover:text-primary transition-colors">
                   About
                 </a>
               </li>
